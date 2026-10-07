@@ -1,0 +1,35 @@
+[build]
+  publish = "."
+  command = "echo 'No build needed - single HTML file'"
+
+[[redirects]]
+  from = "/api/overpass"
+  to = "https://overpass-api.de/api/interpreter"
+  status = 200
+  force = true
+  headers = {X-Forwarded-Host = "divyadhrushti.netlify.app"}
+
+[[redirects]]
+  from = "/api/nominatim/*"
+  to = "https://nominatim.openstreetmap.org/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), microphone=(self)"
+    # Allow mic + GPS - required for Divya Drushti
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
