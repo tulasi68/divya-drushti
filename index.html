@@ -1,1 +1,54 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=/navigation.html"><title>Divya Dhrushti</title><script>location.replace('/navigation.html');</script></head><body><p>Opening Divya Dhrushti voice navigation… <a href="/navigation.html">Open the walking guide</a>.</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#123d35">
+<meta name="description" content="A lightweight voice-first walking companion prototype.">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./styles.css">
+<title>Divya Dhrushti — Voice Walking Companion</title>
+</head>
+<body>
+<main class="app">
+<header class="hero">
+  <div class="mark" aria-hidden="true">◉</div>
+  <div><p class="eyebrow">VOICE WALKING COMPANION</p><h1>Divya Dhrushti</h1><p class="subtitle">Listen to your surroundings. Find your way.</p></div>
+</header>
+<section class="notice" role="note"><strong>Early prototype</strong><span>This app cannot reliably detect traffic, stairs, holes, curbs or other immediate hazards. Do not use it as a replacement for a cane, guide dog or sighted assistance.</span></section>
+<section class="panel">
+  <h2>1. Start with your voice</h2>
+  <p class="muted">Keep this page open. Allow location and microphone access when asked.</p>
+  <div class="actions"><button id="startBtn" class="primary">Start voice guide</button><button id="locBtn" class="secondary">Speak my location</button></div>
+  <p id="status" class="status" aria-live="polite">Ready when you are.</p>
+  <p id="locationText" class="location" aria-live="polite">Current location not yet requested.</p>
+</section>
+<section class="panel">
+  <h2>2. Where would you like to go?</h2>
+  <form id="destinationForm">
+    <label for="destination">Destination</label>
+    <div class="searchrow"><input id="destination" name="destination" placeholder="Say or type a place" autocomplete="street-address"><button class="primary" type="submit">Find</button></div>
+  </form>
+  <div id="results" class="results" aria-live="polite"></div>
+  <div id="routeSummary" class="route-summary" hidden></div>
+  <div class="actions"><button id="beginRouteBtn" class="primary" disabled>Begin spoken directions</button><button id="repeatBtn" class="secondary" disabled>Repeat</button><button id="stopBtn" class="secondary">Stop</button></div>
+  <p id="instruction" class="instruction" aria-live="assertive">Your next instruction will be spoken here.</p>
+</section>
+<section class="panel">
+  <h2>3. Camera snapshots (experimental)</h2>
+  <p class="muted">With permission, the app can capture a snapshot periodically and announce that it was taken. This no-server version does <strong>not</strong> understand or describe the picture yet.</p>
+  <div class="actions"><button id="cameraBtn" class="secondary">Start camera snapshots</button><button id="cameraStopBtn" class="secondary" disabled>Stop camera</button></div>
+  <video id="camera" playsinline muted hidden></video><canvas id="snapshot" hidden></canvas>
+  <p id="cameraStatus" class="status" aria-live="polite">Camera is off.</p>
+</section>
+<section class="panel small">
+  <label for="language">Spoken language</label>
+  <select id="language"><option value="en-IN">English (India)</option><option value="hi-IN">हिन्दी</option><option value="kn-IN">ಕನ್ನಡ</option></select>
+  <p class="muted">Uses your browser's speech, GPS and public OpenStreetMap-related services. Data or mobile signal is required for search and routing.</p>
+</section>
+<footer>Divya Dhrushti · Lightweight, installable web app · No account required</footer>
+</main>
+<script src="./app.js" defer></script>
+</body>
+</html>
