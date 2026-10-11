@@ -1,0 +1,11 @@
+{
+  "name": "Divya Dhrushti — Voice Walking Companion",
+  "short_name": "Divya Dhrushti",
+  "description": "A lightweight voice-first walking companion prototype.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f4",
+  "theme_color": "#123d35",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
